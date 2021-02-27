@@ -1,0 +1,26 @@
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+
+body{
+	background-color: #17181a;
+	font-family: 'Monserrat', sans-serif;
+	height: 100vh;
+	font-weight: 100vw;
+	display: flex;
+	flex-direction: column;
+	overflow-x: hidden;
+}
+
+
+body.hide{
+	overflow: hidden;
+}
+
+
+.scrollmagic-pin-spacer {
+	position: static !important;
+  }
