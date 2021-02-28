@@ -1,5 +1,4 @@
 // STORES //
-import { global } from '../stores/GlobalStore.js'
 // IMPORTS //
 import { selections } from './selections.js'
 
@@ -20,8 +19,9 @@ export function animateSlide(){
         // GSAP //
         const slideTL = gsap.timeline({defaults: {duration: 1, ease: "power2.inOut"}});
         slideTL.fromTo(revealImg, {x: "0%"}, {x: "100%"});
+        slideTL.fromTo(revealImg, {y: "0%"}, {y: "210%"});
         slideTL.fromTo(img, {scale: 2}, {scale: 1}, "-=.7");
-        slideTL.fromTo(revealText, {x: "0%"}, {x: "100%"}, "-=.2")
+        slideTL.fromTo(revealText, {x: "0%"}, {x: "110%"}, "-=.2")
         slideTL.fromTo(nav, {y: "-100%"}, {y: '1%'}, "-=.4 ")
         // CREATE SCENE //
         slidescene = new ScrollMagic.Scene({
@@ -47,8 +47,8 @@ export function navToggle(e){
 
     e.target.classList.add('active')
 
-        gsap.to(selections.line1, 0.5, {rotate: "45", translateY: 2, translateX: 6, backgroundColor: "black"})
-        gsap.to(selections.line2, 0.5, {rotate: "-45", translateY: -7, translateX: 5, width: "1.5rem", backgroundColor: "black"})
+        gsap.to(selections.line1, 0.5, {rotate: "45", translateY: 2, translateX: 5, backgroundColor: "black"})
+        gsap.to(selections.line2, 0.5, {rotate: "-45", translateY: -6, translateX: 4, width: "1.5rem", backgroundColor: "black"})
         gsap.to(selections.line3, 0.5, {opacity: "0"})
         gsap.to(selections.logo, 1.5, {color: "black"})
         gsap.to(selections.navbar, 1.8, {clipPath: "circle(2500px at 100% -10%"})

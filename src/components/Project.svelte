@@ -58,16 +58,37 @@
     .nr{
         font-size: 10rem;
         position: absolute;
-        left: -4%;
-        bottom: 1%;
-        color: white;
+        left: 5.5%;
+        bottom: -5%;
+        color: grey;
         opacity: .7;
     }
 
     .buttons{
+        display: flex;
         z-index: 4;
         margin: 1rem;
-        transform: translate(31%, -84vh);
+        transform: translate(31%, -88vh);
+        height: auto;
+    }
+
+    @media (max-width: 600px){
+        .buttons{
+            transform: translate(2%, 2vh);
+            padding: 0.4rem .85rem;
+        }
+
+        .nr{
+            left: 2%;
+        }
+    }
+
+    @media (min-width: 601px) and (max-width: 900px){
+        .buttons{
+            display: inline-block;
+            transform: translate(17%, 2vh);
+            margin-bottom: 5rem;
+        }
     }
 </style>
 
@@ -80,7 +101,9 @@
             <img src={img} alt={title} />
             <div class="buttons">
                 <Button git href={git}/>
+                {#if demo}
                 <Button href={demo}/>
+                {/if}
             </div>
         </div>
         <div class="nr">

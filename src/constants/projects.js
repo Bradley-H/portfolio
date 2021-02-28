@@ -48,9 +48,9 @@ export const projects = [
         title: "Admin Dashboard",
         text: "This is an Administrative dashboard using Chart.js.",
         color: 'white',
-        git: "https://github.com/Bradley-H/GouMai",
-        demo: "https://bradley-h.github.io/GouMai/",
-        img: "/img/goumai.png" 
+        git: "https://github.com/Bradley-H/Admin",
+        demo: "https://loving-heyrovsky-1965c3.netlify.app/",
+        img: "/img/admin.png" 
     },
 
 

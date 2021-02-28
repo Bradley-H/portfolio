@@ -33,6 +33,12 @@
         top: 30%;
         left: 28%;
     }
+
+    @media (max-width: 900px){
+        .cursor{
+            display: none;
+        }
+    }
 </style>
 
 <svelte:window on:mousemove="{cursor}"/>

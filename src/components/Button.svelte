@@ -18,6 +18,7 @@
     margin-right: 1.3rem;
     margin-left: 1.5rem;
     text-decoration: none;
+    height: auto;
 }
 
 .btn:hover{

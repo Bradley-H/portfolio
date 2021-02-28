@@ -9,6 +9,10 @@
     export const text = null;
     // CONSTANTS //
     import { information, technologies, toLearn } from '../constants/sections.js'
+    // VARIABLES //
+    let innerWidth; // will disable any images if below a certain window width
+
+    $: test = console.log(innerWidth);
 </script>
 
 
@@ -123,32 +127,81 @@
         margin-top: .5rem;
         text-align: center;
     }
+
+
+    @media (max-width: 900px){
+        .slide{
+            flex-direction: column-reverse;
+        }
+        .reveal-img{
+            top: -1rem;
+        }
+
+        .reveal-text{
+            top: 0rem;
+            height: 90%;
+        }
+
+        .tech .img{
+            width: 50px;
+            margin: 0 0 0 1rem;
+        }
+
+        .learn .img{
+            width: 60px;
+            margin: 0;
+        }
+
+        .tech h4,
+        .learn p{
+            font-size: .65rem;
+        }
+
+
+        .hero-img img{
+            width: 100%;
+            overflow: visible;
+        }
+
+        .hero-desc{
+            flex-basis: 12rem;
+        }
+
+        .tech img,
+        .learn img{
+            width: 45px;
+            height: 45px;
+        }
+    }
 </style>
 
+
+
+<svelte:window bind:innerWidth={innerWidth}/>
 <!-- LOOPING THROUGH THE SECTIONS -->
 {#each information as info (info.id)}
-<section class="slide" use:animateSlide>
-    <div class="hero-img">
-        <div class="reveal-img"></div>
-        <img src={info.img} alt="avatar">
-    </div>
-    <div class="hero-desc">
-        <div class="title" >
-            <h2>{info.title1 + ""} <span style="color: {info.color}">{ info.title2 }</span></h2>
-            <div style="background-color: {info.color}" class="title-swipe t-swipe"></div>
+    <section class="slide" use:animateSlide>
+        <div class="hero-img">
+            <div class="reveal-img"></div>
+            <img src={info.img} alt="avatar">
         </div>
-        <h4 class="heading">{info.text}</h4>
+        <div class="hero-desc">
+            <div class="title" >
+                <h2>{info.title1 + ""} <span style="color: {info.color}">{ info.title2 }</span></h2>
+                <div style="background-color: {info.color}" class="title-swipe t-swipe"></div>
+            </div>
+            <h4 class="heading">{info.text}</h4>
 
 
         <!-- MY STACK -->
         {#if info.technologies == true}
         <div class="tech">
-        {#each technologies as tech (tech.id)}
-                <div class="img">
-                    <img src={tech.image} alt={tech.technology}>
-                    <h4>{tech.technology}</h4>
-                </div>
-        {/each}
+            {#each technologies as tech (tech.id)}
+                    <div class="img">
+                        <img src={tech.image} alt={tech.technology}>
+                        <h4>{tech.technology}</h4>
+                    </div>
+            {/each}
         </div>
     
 

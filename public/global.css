@@ -24,3 +24,13 @@ body.hide{
 .scrollmagic-pin-spacer {
 	position: static !important;
   }
+
+  @media (max-width: 999px){
+	.scrollmagic-pin-spacer{
+		display: none;
+	}
+
+	body{
+	overflow-x: hidden;
+	}
+  }
