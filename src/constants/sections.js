@@ -1,5 +1,5 @@
 export const information = [
-    { id: 0, title1: "About", title2: "me", color: "#e74c3c", img: "/img/1.jpeg", text: "My name is Bradley, I'm an aspiring front-end web developer. I do enjoy learning about technology and how everything connects." },
+    { id: 0, title1: "About", title2: "me", color: "#e74c3c", img: "/img/profile.jpg", text: "My name is Bradley, I'm an aspiring front-end web developer. I do enjoy learning about technology and how everything connects." },
     {id: 1, title1: "My", title2: "stack", color: "#3498db", img: "/img/1.jpeg", text: "Here are the Technologies that I use:", technologies: true}
 ]
 

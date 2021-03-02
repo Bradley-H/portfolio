@@ -4,8 +4,9 @@
     export let title;
     export let text;
     export let git;
-    export let demo;
+    export let demo = null;
     export let img;
+    export const id = null
     // IMPORTS //
     import Button from "./Button.svelte"
     // FUNCTIONS //
@@ -96,11 +97,13 @@
 
         .img{
             width: 50%;
+            margin-left: 2rem;
         }
 
         .img img{
             width: 100%;
-            height: 100%;
+            min-height: 255px;
+            max-height: 100%;
         }
 
 

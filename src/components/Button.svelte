@@ -20,6 +20,7 @@
     text-decoration: none;
     height: auto;
     text-align: center;
+    font-size: .88rem;
 }
 
 .btn:hover{
@@ -30,7 +31,7 @@ color: white;
 
 
 
-<a class="btn" {href}
+<a class="btn" {href} target="_blank"
 on:mouseout={() => $global.activeCursor = false} 
 on:mouseover={() => $global.activeCursor = true}>{git ? "Git Respository" : "Demo"}
 </a>

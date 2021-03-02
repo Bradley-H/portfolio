@@ -51,6 +51,11 @@
         overflow: hidden;
     }
 
+    .hero-img img {
+        border-radius: 7px;
+        max-width: 250px;
+    }
+
     img{
         width: 100%;
         height: 95%;
@@ -115,11 +120,10 @@
         flex-direction: row;
         margin-top: 1.5rem;
     }
-    h4.heading:first-of-type{
+    h4.heading{
         margin-top: 1rem;
-    }
-    h4.heading:last-of-type{
-        margin-top:1rem;
+        margin-left: 1rem;
+        font-weight: normal;
     }
     .img p{
         padding: 5px 0px;

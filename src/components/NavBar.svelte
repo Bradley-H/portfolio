@@ -24,6 +24,10 @@
     a.nav-links{
         font-size: 2rem;
         flex-basis: 20rem;
+        color: #FF5722;
+        text-decoration: none;
+        font-weight: bold;
+        text-shadow: 2px 0px 2px black;
     }
 
     .contact{
