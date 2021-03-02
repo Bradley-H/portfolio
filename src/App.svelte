@@ -11,7 +11,6 @@
 
 
 <style>
-
     h2{
         color: white;
         text-align: center; 
