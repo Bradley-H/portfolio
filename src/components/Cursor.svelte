@@ -6,8 +6,6 @@
 </script>
 
 
-
-
 <style>
     .cursor{
         width: 3.3rem;
@@ -43,7 +41,7 @@
     }
 </style>
 
-<svelte:window on:mousemove={cursor}/>
+<svelte:window on:mousemove="{cursor}"/>
 
 
 <div class:nav-active={$global.activeCursor} class="cursor">

@@ -39,7 +39,7 @@
     }
 
     img{
-        width: 98%;
+        width: 95%;
         height:100%;
     }
 
@@ -59,6 +59,7 @@
         font-size: 10rem;
         position: absolute;
         left: 5.5%;
+        bottom: -5%;
         color: grey;
         opacity: .7;
     }
@@ -67,27 +68,26 @@
         display: flex;
         z-index: 4;
         margin: 1rem;
-        justify-content: center;
+        transform: translate(31%, -88vh);
         height: auto;
-        transform: translate(0%, -88vh);
     }
 
     @media (max-width: 600px){
         .buttons{
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            transform: translate(2%, 2vh);
             padding: 0.4rem .85rem;
-            transform: translate(0%, -15px);
         }
 
         .nr{
             left: 2%;
-            bottom: 3%;
         }
+    }
 
-        .img{
-            max-height: 280px;
+    @media (min-width: 601px) and (max-width: 900px){
+        .buttons{
+            display: inline-block;
+            transform: translate(17%, 2vh);
+            margin-bottom: 5rem;
         }
     }
 </style>
