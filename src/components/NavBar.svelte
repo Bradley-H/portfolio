@@ -24,9 +24,6 @@
     a.nav-links{
         font-size: 2rem;
         flex-basis: 20rem;
-        text-decoration: none;
-        color: #FF5722;
-        font-weight: bold;
     }
 
     .contact{
@@ -36,16 +33,22 @@
         font-size: 3rem;
         padding: 1.5rem 0;
     }
+
+    p{
+        font-size: 1.4rem;
+        line-height: 1.5;
+    }
 </style>
 
 
 <nav class="nav-bar">
     <ul>
         {#each links as link}
-            <a class="nav-links" href="{link.href}">{link.text}</a>
+            <a class="nav-links" href="#!">{link.text}</a>
         {/each}
     </ul>
     <div class="contact">
         <h2>Stay in touch</h2>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem distinctio aperiam accusamus, ratione nulla vero voluptatem at voluptatibus atque neque?</p>
     </div>
 </nav>
