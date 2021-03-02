@@ -9,10 +9,6 @@
     export const text = null;
     // CONSTANTS //
     import { information, technologies, toLearn } from '../constants/sections.js'
-    // VARIABLES //
-    let innerWidth; // will disable any images if below a certain window width
-
-    $: test = console.log(innerWidth);
 </script>
 
 
@@ -25,6 +21,10 @@
         min-height: 100vh;
         margin: 0 auto;
         width: 88%;
+    }
+
+    section{
+        overflow-x: hidden;
     }
 
     .title{
@@ -42,6 +42,7 @@
         flex-basis: 25rem;
         padding-left: 2rem;
         position: relative;
+        transform: translate(0, -10%);
     }
 
     .hero-img{
@@ -70,7 +71,7 @@
     .reveal-text{
         position: absolute;
         background-color: #17181a;
-        width: 100%;
+        width: 102%;
         height: 120%;
         overflow: hidden;
         z-index: 2;
@@ -93,7 +94,6 @@
     .img{
         width: 120px;
         height: 120px;
-        margin-left: 1rem;
     }
 
     .tech{
@@ -105,9 +105,9 @@
     }
 
     .img img{
-        height: 100%;
-        object-fit: scale-down;
-        width: 100%;
+        height: 90%;
+        object-fit: fill;
+        width: 90%;
     }
 
     .learn{
@@ -118,9 +118,7 @@
     h4.heading:first-of-type{
         margin-top: 1rem;
     }
-    h4.heading:last-of-type{
-        margin-top:1rem;
-    }
+    
     .img p{
         padding: 5px 0px;
         margin-right: 5px;
@@ -136,6 +134,7 @@
         .reveal-img{
             top: -1rem;
         }
+
 
         .reveal-text{
             top: 0rem;
@@ -163,6 +162,10 @@
             overflow: visible;
         }
 
+        .hero-img:nth-of-type(2){
+            display: none;
+        }
+
         .hero-desc{
             flex-basis: 12rem;
         }
@@ -172,12 +175,17 @@
             width: 45px;
             height: 45px;
         }
+
+        .img img{
+            object-fit: fill;
+
+        }
     }
 </style>
 
 
 
-<svelte:window bind:innerWidth={innerWidth}/>
+
 <!-- LOOPING THROUGH THE SECTIONS -->
 {#each information as info (info.id)}
     <section class="slide" use:animateSlide>

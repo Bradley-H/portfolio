@@ -25,7 +25,7 @@ body.hide{
 	position: static !important;
   }
 
-  @media (max-width: 999px){
+  @media (max-width: 900px){
 	.scrollmagic-pin-spacer{
 		display: none;
 	}
