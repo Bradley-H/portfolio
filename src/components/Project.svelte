@@ -39,7 +39,7 @@
     }
 
     img{
-        width: 95%;
+        width: 98%;
         height:100%;
     }
 
@@ -59,7 +59,6 @@
         font-size: 10rem;
         position: absolute;
         left: 5.5%;
-        bottom: -5%;
         color: grey;
         opacity: .7;
     }
@@ -68,26 +67,27 @@
         display: flex;
         z-index: 4;
         margin: 1rem;
-        transform: translate(31%, -88vh);
+        justify-content: center;
         height: auto;
+        transform: translate(0%, -88vh);
     }
 
     @media (max-width: 600px){
         .buttons{
-            transform: translate(2%, 2vh);
+            display: flex;
+            justify-content: center;
+            align-items: center;
             padding: 0.4rem .85rem;
+            transform: translate(0%, -15px);
         }
 
         .nr{
             left: 2%;
+            bottom: 3%;
         }
-    }
 
-    @media (min-width: 601px) and (max-width: 900px){
-        .buttons{
-            display: inline-block;
-            transform: translate(17%, 2vh);
-            margin-bottom: 5rem;
+        .img{
+            max-height: 280px;
         }
     }
 </style>
