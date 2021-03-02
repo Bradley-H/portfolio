@@ -11,8 +11,6 @@
     import { information, technologies, toLearn } from '../constants/sections.js'
     // VARIABLES //
     let innerWidth; // will disable any images if below a certain window width
-
-    $: test = console.log(innerWidth);
 </script>
 
 
@@ -42,6 +40,8 @@
         flex-basis: 25rem;
         padding-left: 2rem;
         position: relative;
+        transform: translate(-1rem, -3rem);
+        overflow: hidden;
     }
 
     .hero-img{
@@ -53,7 +53,7 @@
 
     img{
         width: 100%;
-        height: 100%;
+        height: 95%;
     }
 
     h2{
@@ -105,7 +105,7 @@
     }
 
     .img img{
-        height: 100%;
+        height: 70%;
         object-fit: scale-down;
         width: 100%;
     }
@@ -176,8 +176,6 @@
 </style>
 
 
-
-<svelte:window bind:innerWidth={innerWidth}/>
 <!-- LOOPING THROUGH THE SECTIONS -->
 {#each information as info (info.id)}
     <section class="slide" use:animateSlide>

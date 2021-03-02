@@ -3,7 +3,6 @@
     export let color;
     export let title;
     export let text;
-    export let id;
     export let git;
     export let demo;
     export let img;
@@ -26,69 +25,85 @@
         position: relative;
         min-height: 90vh;
         margin-top: 25rem;
+
     }
     .img{
-        height: 60vh;
-        flex-basis: 56rem;
+        height: 100%;
     }
 
     .text{
         flex: 1;
         position: relative;
         flex-basis: 25rem;
+        width: 110%;
     }
 
     img{
         width: 95%;
-        height:100%;
+        height:90%;
     }
 
     h1{
         font-size: 2rem;
         padding: 1rem 0rem;
-    }
-
-    p{
-        font-size: 1.5rem;
-        padding: 2rem 0rem;
-        margin-bottom: -1rem;
         text-align: center;
     }
 
-    .nr{
-        font-size: 10rem;
-        position: absolute;
-        left: 5.5%;
-        bottom: -5%;
-        color: grey;
-        opacity: .7;
+    p{
+        font-size: 1rem;
+        padding: 2rem 0rem;
+        margin-bottom: -1rem;
+        text-align: center;
     }
 
     .buttons{
         display: flex;
         z-index: 4;
         margin: 1rem;
-        transform: translate(31%, -88vh);
+        justify-content: center;
         height: auto;
     }
 
-    @media (max-width: 600px){
+    @media (max-width: 768px){
         .buttons{
-            transform: translate(2%, 2vh);
+            justify-content: center;
             padding: 0.4rem .85rem;
+            transform: translateY(3vh);
         }
 
-        .nr{
-            left: 2%;
+        p{
+            font-size: .8rem;
         }
+
+        .img img {
+            object-fit: scale-down;
+        }
+        .img{
+        height: 250px;
+        max-width: 650px;
+        transform: translate(0, -6vh);
+    }
     }
 
-    @media (min-width: 601px) and (max-width: 900px){
+    @media (min-width:769px) and (max-width: 1100px){
         .buttons{
-            display: inline-block;
-            transform: translate(17%, 2vh);
-            margin-bottom: 5rem;
+            transform: translateY(3vh);
         }
+
+    }
+
+    @media (min-width:1101px){
+
+        .img{
+            width: 50%;
+        }
+
+        .img img{
+            width: 100%;
+            height: 100%;
+        }
+
+
     }
 </style>
 
@@ -96,9 +111,6 @@
         <div class="text">
             <h1 style="color: {color}">{title}</h1>
             <p>{text}</p>
-        </div>
-        <div class="img">
-            <img src={img} alt={title} />
             <div class="buttons">
                 <Button git href={git}/>
                 {#if demo}
@@ -106,7 +118,8 @@
                 {/if}
             </div>
         </div>
-        <div class="nr">
-            <span>{id + 1}</span>
+
+        <div class="img">
+            <img src={img} alt={title} />
         </div>
     </section>

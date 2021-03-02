@@ -19,6 +19,7 @@
     margin-left: 1.5rem;
     text-decoration: none;
     height: auto;
+    text-align: center;
 }
 
 .btn:hover{
