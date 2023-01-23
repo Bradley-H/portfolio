@@ -1,0 +1,21 @@
+*{
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+	scroll-behavior: smooth;
+	font-family: 'Press Start 2P', monospace;
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+	overflow: hidden;
+	height: 100vh;
+	width: 100vw;
+}
+
+/* ANIMATE THE CLOUDS IN THE LAYOUT */
+@keyframes animateCloud{
+    0% {left: -30%;}
+    100% {left: 125%}
+}

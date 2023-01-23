@@ -1,0 +1,29 @@
+// COLORS //
+$primaryColor: #44a4e9;
+$secondaryColor: #26de81;
+$success: #22ff00;
+$danger: #ff2828;
+$lightBlue: #4bcffa;
+$darkBlue: #3c40c6;
+$lightOrange: #ff5e57;
+$darkOrange: #c1563d;
+$lightYellow: #fff700;
+$darkYellow: #fed330;
+$lightPurple: #cd84f1;
+$darkPurple: #c56cf0;
+$groundColor: #9d5d2a;
+$cloudColor: rgba(255, 255, 255,.4);
+$textColor: #093259;
+
+// FONT VARIABLES //
+$primaryFont: 'Press Start 2P', monospace;
+
+// TRANSITIONS //
+$primaryTransition: all .5s linear;
+$secondaryTransition: transform 888ms linear;
+
+// COMPONENT SPECIFIC VARS //
+$cardHeight: 230;
+$cardMargin: 1;
+$portfolioLength: 5;
+$maxContainer: 1500;

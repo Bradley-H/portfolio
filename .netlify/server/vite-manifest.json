@@ -1,0 +1,181 @@
+{
+  ".svelte-kit/build/index.js": {
+    "file": "index.js",
+    "src": ".svelte-kit/build/index.js",
+    "isEntry": true,
+    "imports": [
+      "_index.js",
+      "_index2.js",
+      "_index3.js"
+    ],
+    "dynamicImports": [
+      ".svelte-kit/build/hooks.js"
+    ]
+  },
+  "src/routes/+layout.svelte": {
+    "file": "entries/pages/_layout.svelte.js",
+    "src": "src/routes/+layout.svelte",
+    "isEntry": true,
+    "imports": [
+      "_index.js",
+      "_index3.js",
+      "_stores.js"
+    ],
+    "css": [
+      "_app/immutable/assets/_layout-13788364.css",
+      "_app/immutable/assets/styles-7dd12837.css"
+    ]
+  },
+  "src/routes/+error.svelte": {
+    "file": "entries/pages/_error.svelte.js",
+    "src": "src/routes/+error.svelte",
+    "isEntry": true,
+    "imports": [
+      "_index.js",
+      "_Dialog.js"
+    ]
+  },
+  "src/routes/portfolio/[item]/+error.svelte": {
+    "file": "entries/pages/portfolio/_item_/_error.svelte.js",
+    "src": "src/routes/portfolio/[item]/+error.svelte",
+    "isEntry": true,
+    "imports": [
+      "_index.js",
+      "_Dialog.js",
+      "_stores.js"
+    ],
+    "css": [
+      "_app/immutable/assets/styles-7dd12837.css"
+    ]
+  },
+  "src/routes/+page.svelte": {
+    "file": "entries/pages/_page.svelte.js",
+    "src": "src/routes/+page.svelte",
+    "isEntry": true,
+    "imports": [
+      "_index.js",
+      "_Me.js",
+      "_Dialog.js"
+    ],
+    "css": [
+      "_app/immutable/assets/_page-d2d3c560.css"
+    ]
+  },
+  "src/routes/+page.server.ts": {
+    "file": "entries/pages/_page.server.ts.js",
+    "src": "src/routes/+page.server.ts",
+    "isEntry": true
+  },
+  "src/routes/contact/+page.svelte": {
+    "file": "entries/pages/contact/_page.svelte.js",
+    "src": "src/routes/contact/+page.svelte",
+    "isEntry": true,
+    "imports": [
+      "_index.js",
+      "_Me.js",
+      "_Dialog.js",
+      "_Button.js"
+    ],
+    "css": [
+      "_app/immutable/assets/_page-d16a6031.css"
+    ]
+  },
+  "src/routes/portfolio/+page.svelte": {
+    "file": "entries/pages/portfolio/_page.svelte.js",
+    "src": "src/routes/portfolio/+page.svelte",
+    "isEntry": true,
+    "imports": [
+      "_index.js",
+      "_Button.js",
+      "_Me.js",
+      "_Dialog.js"
+    ],
+    "css": [
+      "_app/immutable/assets/_page-71006d9f.css"
+    ]
+  },
+  "src/routes/portfolio/+page.server.ts": {
+    "file": "entries/pages/portfolio/_page.server.ts.js",
+    "src": "src/routes/portfolio/+page.server.ts",
+    "isEntry": true,
+    "imports": [
+      "_portfolio.js"
+    ]
+  },
+  "src/routes/portfolio/[item]/+page.svelte": {
+    "file": "entries/pages/portfolio/_item_/_page.svelte.js",
+    "src": "src/routes/portfolio/[item]/+page.svelte",
+    "isEntry": true,
+    "imports": [
+      "_index.js",
+      "_Dialog.js",
+      "_Button.js"
+    ],
+    "css": [
+      "_app/immutable/assets/_page-00b44150.css",
+      "_app/immutable/assets/styles-7dd12837.css"
+    ]
+  },
+  "src/routes/portfolio/[item]/+page.server.ts": {
+    "file": "entries/pages/portfolio/_item_/_page.server.ts.js",
+    "src": "src/routes/portfolio/[item]/+page.server.ts",
+    "isEntry": true,
+    "imports": [
+      "_index2.js",
+      "_portfolio.js"
+    ]
+  },
+  ".svelte-kit/build/hooks.js": {
+    "file": "chunks/hooks.js",
+    "src": ".svelte-kit/build/hooks.js",
+    "isDynamicEntry": true
+  },
+  "_index.js": {
+    "file": "chunks/index.js"
+  },
+  "_index2.js": {
+    "file": "chunks/index2.js"
+  },
+  "_index3.js": {
+    "file": "chunks/index3.js",
+    "imports": [
+      "_index.js"
+    ]
+  },
+  "_stores.js": {
+    "file": "chunks/stores.js",
+    "imports": [
+      "_index.js"
+    ]
+  },
+  "_Dialog.js": {
+    "file": "chunks/Dialog.js",
+    "imports": [
+      "_index.js"
+    ],
+    "css": [
+      "_app/immutable/assets/Dialog-15da5868.css"
+    ]
+  },
+  "_Me.js": {
+    "file": "chunks/Me.js",
+    "imports": [
+      "_index.js"
+    ],
+    "css": [
+      "_app/immutable/assets/Me-f506c558.css"
+    ]
+  },
+  "_Button.js": {
+    "file": "chunks/Button.js",
+    "imports": [
+      "_index.js"
+    ],
+    "css": [
+      "_app/immutable/assets/Button-6f0d2609.css"
+    ]
+  },
+  "_portfolio.js": {
+    "file": "chunks/portfolio.js"
+  }
+}

@@ -1,0 +1,34 @@
+%textshadow{
+    text-shadow: 1px 1px black;
+}
+
+%centered{
+    @extend %flex;
+    justify-content: center;
+    align-items: center;
+}
+
+%absolute{
+    position: absolute;
+}
+
+%flex{
+    display: flex;
+}
+%flexCol{
+    @extend %flex;
+    flex-direction: column;
+}
+
+%grid{
+    display: grid;
+}
+
+%grid2{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+%w100{
+    width: 100%;
+}
