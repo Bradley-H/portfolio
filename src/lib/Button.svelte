@@ -90,7 +90,7 @@
 {#if href}
     <a class:other={other} on:click {href}> <i class="{icon}"/> {text}</a>
 {:else if submit}
-    <button on:submit class:submit={submit} class:other={other} type="submit"> <i class="{icon}"/>{text}</button>
+    <button on:submit|preventDefault class:submit={submit} class:other={other} type="submit"> <i class="{icon}"/>{text}</button>
 {:else}
     <button on:mousedown on:click|preventDefault class:other={other}><i class="{icon}"/>{text}</button>
 {/if}

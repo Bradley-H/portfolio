@@ -5,6 +5,7 @@ import {links} from '../constants/links'
 import {page} from '$app/stores';
 // COMPONENTS //
 import Link from '$lib/Link.svelte'
+import Button from '$lib/Button.svelte'
 // VARIABLES //
 let active = $page.url.pathname
 // STORES //
@@ -31,6 +32,7 @@ div{
         @include centered;
         flex-direction: column;
         color: black;
+        gap: 3rem;
     }
 }
 </style>
@@ -44,7 +46,7 @@ div{
             on:click={() => $globalStore.navActive = false}
             on:click={() => active = link.href}/>
         {/each}
-
+        <Button href={"./Resume.pdf"} icon={"fas fa-file-pdf"} text="Resume" />
         
     </div>
 

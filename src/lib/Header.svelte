@@ -5,6 +5,7 @@
     import Link from "$lib/Link.svelte";
     import Burger from "$lib/Burger.svelte";
     import Menu from "$lib/Menu.svelte";
+    import Button from "$lib/Button.svelte";
     // STORES //
     import { globalStore } from "../stores/globalStore";
     // SVELTE IMPORTS //
@@ -25,9 +26,9 @@
 
     header {
         display: flex;
-        margin-top: 0.75rem;
         margin-left: 0.8rem;
         z-index: 80;
+        transform: translateY(.5rem);
 
         a {
             text-decoration: none;
@@ -35,7 +36,7 @@
             top: -0.05rem; 
             z-index: 5;
             color: $textColor;
-            position: relative;
+            position: absolute;
             width: max-content;
 
         }
@@ -44,9 +45,9 @@
             display: none;
             justify-content: space-evenly;
             width: 100%;
-            position: relative;
+            position: absolute;
             top: -0.1rem;
-            @include laptopUp {
+            @include desktopUp {
                 display: flex;
             }
         }
@@ -59,7 +60,7 @@
             @include centered;
 
             
-            @include laptopUp {
+            @include desktopUp {
                 display: none;
             }
         }
@@ -85,6 +86,7 @@
         {#each links as link, i (i)}
             <Link {...link} {active} on:click={() => active = link.href}/>
         {/each}
+        <Button href={"./Resume.pdf"} icon={"fas fa-file-pdf"} text="Resume" />
     </div>
 
 </header>

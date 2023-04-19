@@ -13,11 +13,9 @@
         display: grid;
         position: relative;
         place-self: center;
-        top: -9.5rem;
+        top: -7.25rem;
         min-width: 250px;
         max-width: toRem($maxContainer);
-        min-height: 100px;
-        max-height: max-content;
         color:white;
         align-self: center;
         text-align: left;
@@ -47,7 +45,7 @@ div{
         letter-spacing: toRem(1);
         line-height: 1.5;
         color: $textColor;
-        max-width: 1300px;
+        max-width: max-content;
         word-break: keep-all;
         margin-left: 4.5rem;
         margin-top: .4rem;

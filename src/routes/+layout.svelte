@@ -18,8 +18,6 @@ main{
 	overflow-y: auto;
 	overflow-x: hidden;
 	background: $primaryColor;
-	height: 100vh;
-	max-height: 100%;
 	width: 100%;
 
 	&.hidden{

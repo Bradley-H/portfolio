@@ -18,7 +18,6 @@
         }
         &.menu{
             color: black;
-            margin-top: 2rem;
         }
 
         &.active{
