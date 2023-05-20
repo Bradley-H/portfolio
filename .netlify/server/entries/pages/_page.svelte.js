@@ -1,4 +1,4 @@
-import { c as create_ssr_component, v as validate_component, f as each, e as escape, b as add_attribute } from "../../chunks/index.js";
+import { c as create_ssr_component, v as validate_component, d as each, e as escape, a as add_attribute } from "../../chunks/index3.js";
 import { M as Me } from "../../chunks/Me.js";
 import { D as Dialog } from "../../chunks/Dialog.js";
 const _page_svelte_svelte_type_style_lang = "";
@@ -14,8 +14,9 @@ const Page = create_ssr_component(($$result, $$props, $$bindings, slots) => {
   return `${$$result.head += `<!-- HEAD_svelte-x0v7mx_START -->${$$result.title = `<title>[B-J-H] - Front End Web Developer</title>`, ""}<!-- HEAD_svelte-x0v7mx_END -->`, ""}
 
 
-<div class="${"me svelte-dn94o"}">${validate_component(Me, "Me").$$render($$result, {}, {}, {})}</div>
-<div class="${"about"}">${validate_component(Dialog, "Dialog").$$render(
+
+<div class="me svelte-dn94o">${validate_component(Me, "Me").$$render($$result, {}, {}, {})}</div>
+<div class="about">${validate_component(Dialog, "Dialog").$$render(
     $$result,
     {
       text: "Hello, I'm Bradley I'm 34 years old. I live in Changzhou, Jiangsu, China. I'm an aspiring Computer Scientist"
@@ -23,16 +24,16 @@ const Page = create_ssr_component(($$result, $$props, $$bindings, slots) => {
     {},
     {
       default: () => {
-        return `<fieldset class="${"svelte-dn94o"}"><legend class="${"svelte-dn94o"}">Skills</legend>
-			<ul class="${"svelte-dn94o"}">${each(data.props.catagories[0].additional, (item) => {
-          return `<li class="${"svelte-dn94o"}"><div class="${"img svelte-dn94o"}"><img src="${escape(item.img, true) + ".webp"}"${add_attribute("alt", item.text + " image", 0)} class="${"svelte-dn94o"}"></div>
-						<h4 class="${"svelte-dn94o"}">${escape(item.text)}</h4>
+        return `<fieldset class="svelte-dn94o"><legend class="svelte-dn94o">Skills</legend>
+			<ul class="svelte-dn94o">${each(data.props.catagories[0].additional, (item) => {
+          return `<li class="svelte-dn94o"><div class="img svelte-dn94o"><img src="${escape(item.img, true) + ".webp"}"${add_attribute("alt", item.text + " image", 0)} class="svelte-dn94o"></div>
+						<h4 class="svelte-dn94o">${escape(item.text)}</h4>
 					</li>`;
         })}</ul></fieldset>`;
       }
     }
   )}</div>
-<div class="${"ground svelte-dn94o"}"></div>`;
+<div class="ground svelte-dn94o"></div>`;
 });
 export {
   Page as default

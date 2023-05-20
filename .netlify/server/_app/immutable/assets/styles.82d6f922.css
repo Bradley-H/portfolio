@@ -1,0 +1,1 @@
+*{padding:0;margin:0;box-sizing:border-box;scroll-behavior:smooth;font-family:"Press Start 2P",monospace}body{display:flex;flex-direction:column;height:100%;background:#44a4e9}body.hidden{overflow-y:auto}@keyframes animateCloud{0%{left:-30%}to{left:125%}}

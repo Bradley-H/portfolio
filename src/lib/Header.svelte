@@ -28,7 +28,7 @@
         display: flex;
         margin-left: 0.8rem;
         z-index: 80;
-        transform: translateY(.5rem);
+        transform: translateY(.4rem);
 
         a {
             text-decoration: none;
@@ -38,17 +38,22 @@
             color: $textColor;
             position: absolute;
             width: max-content;
+            margin-top: .5rem;
 
         }
 
         .links {
             display: none;
             justify-content: space-evenly;
+            align-items: center;
             width: 100%;
             position: absolute;
             top: -0.1rem;
             @include desktopUp {
                 display: flex;
+            }
+            div{
+                margin: 0 1rem;
             }
         }
         .burger {
@@ -84,7 +89,9 @@
 
     <div class="links">
         {#each links as link, i (i)}
+        <div>
             <Link {...link} {active} on:click={() => active = link.href}/>
+        </div>
         {/each}
         <Button href={"./Resume.pdf"} icon={"fas fa-file-pdf"} text="Resume" />
     </div>

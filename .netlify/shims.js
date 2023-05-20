@@ -648,8 +648,23 @@ function ReadableStreamFrom$1 (iterable) {
   )
 }
 
+// The chunk should be a FormData instance and contains
+// all the required methods.
 function isFormDataLike (chunk) {
-  return chunk && chunk.constructor && chunk.constructor.name === 'FormData'
+  return (chunk &&
+    chunk.constructor && chunk.constructor.name === 'FormData' &&
+    typeof chunk === 'object' &&
+      (typeof chunk.append === 'function' &&
+        typeof chunk.delete === 'function' &&
+        typeof chunk.get === 'function' &&
+        typeof chunk.getAll === 'function' &&
+        typeof chunk.has === 'function' &&
+        typeof chunk.set === 'function' &&
+        typeof chunk.entries === 'function' &&
+        typeof chunk.keys === 'function' &&
+        typeof chunk.values === 'function' &&
+        typeof chunk.forEach === 'function')
+  )
 }
 
 const kEnumerableProperty = Object.create(null);
@@ -4461,6 +4476,12 @@ function requireDataURL () {
 
 	const encoder = new TextEncoder();
 
+	// Regex
+	const HTTP_TOKEN_CODEPOINTS = /^[!#$%&'*+-.^_|~A-z0-9]+$/;
+	const HTTP_WHITESPACE_REGEX = /(\u000A|\u000D|\u0009|\u0020)/; // eslint-disable-line
+	// https://mimesniff.spec.whatwg.org/#http-quoted-string-token-code-point
+	const HTTP_QUOTED_STRING_TOKENS = /^(\u0009|\x{0020}-\x{007E}|\x{0080}-\x{00FF})+$/; // eslint-disable-line
+
 	// https://fetch.spec.whatwg.org/#data-url-processor
 	/** @param {URL} dataURL */
 	function dataURLProcessor (dataURL) {
@@ -4673,7 +4694,7 @@ function requireDataURL () {
 	  // 4. If type is the empty string or does not solely
 	  // contain HTTP token code points, then return failure.
 	  // https://mimesniff.spec.whatwg.org/#http-token-code-point
-	  if (type.length === 0 || !/^[!#$%&'*+-.^_|~A-z0-9]+$/.test(type)) {
+	  if (type.length === 0 || !HTTP_TOKEN_CODEPOINTS.test(type)) {
 	    return 'failure'
 	  }
 
@@ -4700,7 +4721,7 @@ function requireDataURL () {
 
 	  // 9. If subtype is the empty string or does not solely
 	  // contain HTTP token code points, then return failure.
-	  if (subtype.length === 0 || !/^[!#$%&'*+-.^_|~A-z0-9]+$/.test(subtype)) {
+	  if (subtype.length === 0 || !HTTP_TOKEN_CODEPOINTS.test(subtype)) {
 	    return 'failure'
 	  }
 
@@ -4714,9 +4735,7 @@ function requireDataURL () {
 	    /** @type {Map<string, string>} */
 	    parameters: new Map(),
 	    // https://mimesniff.spec.whatwg.org/#mime-type-essence
-	    get essence () {
-	      return `${this.type}/${this.subtype}`
-	    }
+	    essence: `${type}/${subtype}`
 	  };
 
 	  // 11. While position is not past the end of input:
@@ -4728,7 +4747,7 @@ function requireDataURL () {
 	    // whitespace from input given position.
 	    collectASequenceOfCodePoints(
 	      // https://fetch.spec.whatwg.org/#http-whitespace
-	      (char) => /(\u000A|\u000D|\u0009|\u0020)/.test(char), // eslint-disable-line
+	      char => HTTP_WHITESPACE_REGEX.test(char),
 	      input,
 	      position
 	    );
@@ -4811,9 +4830,8 @@ function requireDataURL () {
 	    // then set mimeType’s parameters[parameterName] to parameterValue.
 	    if (
 	      parameterName.length !== 0 &&
-	      /^[!#$%&'*+-.^_|~A-z0-9]+$/.test(parameterName) &&
-	      // https://mimesniff.spec.whatwg.org/#http-quoted-string-token-code-point
-	      !/^(\u0009|\x{0020}-\x{007E}|\x{0080}-\x{00FF})+$/.test(parameterValue) &&  // eslint-disable-line
+	      HTTP_TOKEN_CODEPOINTS.test(parameterName) &&
+	      !HTTP_QUOTED_STRING_TOKENS.test(parameterValue) &&
 	      !mimeType.parameters.has(parameterName)
 	    ) {
 	      mimeType.parameters.set(parameterName, parameterValue);
@@ -5615,7 +5633,7 @@ function requireFormdata () {
 	        lastModified: value.lastModified
 	      };
 
-	      value = value instanceof File
+	      value = (NativeFile && value instanceof NativeFile) || value instanceof UndiciFile
 	        ? new File([value], filename, options)
 	        : new FileLike(value, filename, options);
 	    }
@@ -6376,7 +6394,7 @@ let Request$1 = class Request {
 
     this.blocking = blocking == null ? false : blocking;
 
-    this.reset = reset == null ? false : reset;
+    this.reset = reset == null ? null : reset;
 
     this.host = null;
 
@@ -7926,9 +7944,8 @@ async function lazyllhttp () {
 }
 
 let llhttpInstance = null;
-let llhttpPromise = lazyllhttp()
-  .catch(() => {
-  });
+let llhttpPromise = lazyllhttp();
+llhttpPromise.catch();
 
 let currentParser = null;
 let currentBufferRef = null;
@@ -7964,6 +7981,7 @@ class Parser {
 
     this.keepAlive = '';
     this.contentLength = '';
+    this.connection = '';
     this.maxResponseSize = client[kMaxResponseSize];
   }
 
@@ -8139,6 +8157,8 @@ class Parser {
     const key = this.headers[len - 2];
     if (key.length === 10 && key.toString().toLowerCase() === 'keep-alive') {
       this.keepAlive += buf.toString();
+    } else if (key.length === 10 && key.toString().toLowerCase() === 'connection') {
+      this.connection += buf.toString();
     } else if (key.length === 14 && key.toString().toLowerCase() === 'content-length') {
       this.contentLength += buf.toString();
     }
@@ -8232,7 +8252,11 @@ class Parser {
     assert$3.strictEqual(this.timeoutType, TIMEOUT_HEADERS);
 
     this.statusCode = statusCode;
-    this.shouldKeepAlive = shouldKeepAlive;
+    this.shouldKeepAlive = (
+      shouldKeepAlive ||
+      // Override llhttp value which does not allow keepAlive for HEAD.
+      (request.method === 'HEAD' && !socket[kReset] && this.connection.toLowerCase() === 'keep-alive')
+    );
 
     if (this.statusCode >= 200) {
       const bodyTimeout = request.bodyTimeout != null
@@ -8262,7 +8286,7 @@ class Parser {
     this.headers = [];
     this.headersSize = 0;
 
-    if (shouldKeepAlive && client[kPipelining]) {
+    if (this.shouldKeepAlive && client[kPipelining]) {
       const keepAliveTimeout = this.keepAlive ? util$b.parseKeepAliveTimeout(this.keepAlive) : null;
 
       if (keepAliveTimeout != null) {
@@ -8292,7 +8316,6 @@ class Parser {
     }
 
     if (request.method === 'HEAD') {
-      assert$3(socket[kReset]);
       return 1
     }
 
@@ -8366,6 +8389,7 @@ class Parser {
     this.bytesRead = 0;
     this.contentLength = '';
     this.keepAlive = '';
+    this.connection = '';
 
     assert$3(this.headers.length % 2 === 0);
     this.headers = [];
@@ -8590,8 +8614,6 @@ async function connect$1 (client) {
 
     assert$3(socket);
 
-    client[kSocket] = socket;
-
     socket[kNoRef] = false;
     socket[kWriting] = false;
     socket[kReset] = false;
@@ -8606,6 +8628,8 @@ async function connect$1 (client) {
       .on('readable', onSocketReadable)
       .on('end', onSocketEnd)
       .on('close', onSocketClose);
+
+    client[kSocket] = socket;
 
     if (channels.connected.hasSubscribers) {
       channels.connected.publish({
@@ -8692,7 +8716,7 @@ function _resume (client, sync) {
 
     const socket = client[kSocket];
 
-    if (socket) {
+    if (socket && !socket.destroyed) {
       if (client[kSize$4] === 0) {
         if (!socket[kNoRef] && socket.unref) {
           socket.unref();
@@ -8759,7 +8783,7 @@ function _resume (client, sync) {
 
     if (!socket) {
       connect$1(client);
-      continue
+      return
     }
 
     if (socket.destroyed || socket[kWriting] || socket[kReset] || socket[kBlocking]) {
@@ -8899,8 +8923,8 @@ function write (client, request) {
     socket[kReset] = true;
   }
 
-  if (reset) {
-    socket[kReset] = true;
+  if (reset != null) {
+    socket[kReset] = reset;
   }
 
   if (client[kMaxRequests] && socket[kCounter]++ >= client[kMaxRequests]) {
@@ -12264,7 +12288,7 @@ class ProxyAgent extends DispatcherBase {
 
     this[kRequestTls] = opts.requestTls;
     this[kProxyTls] = opts.proxyTls;
-    this[kProxyHeaders] = {};
+    this[kProxyHeaders] = opts.headers || {};
 
     if (opts.auth && opts.token) {
       throw new InvalidArgumentError$1('opts.auth cannot be used in combination with opts.token')
@@ -14554,7 +14578,7 @@ function requireFetch () {
 	const { isErrored, isReadable } = util$g;
 	const { dataURLProcessor, serializeAMimeType } = requireDataURL();
 	const { TransformStream } = require$$13;
-	const { getGlobalDispatcher } = requireUndici();
+	const { getGlobalDispatcher } = global$2;
 	const { webidl } = requireWebidl();
 	const { STATUS_CODES } = require$$2;
 
@@ -16375,8 +16399,6 @@ function requireFetch () {
 	        body: fetchParams.controller.dispatcher.isMockActive ? request.body && request.body.source : body,
 	        headers: request.headersList[kHeadersCaseInsensitive],
 	        maxRedirections: 0,
-	        bodyTimeout: 300_000,
-	        headersTimeout: 300_000,
 	        upgrade: request.mode === 'websocket' ? 'websocket' : undefined
 	      },
 	      {
@@ -19554,7 +19576,6 @@ function requireConnection () {
 	if (hasRequiredConnection) return connection;
 	hasRequiredConnection = 1;
 
-	// TODO: crypto isn't available in all environments
 	const { randomBytes, createHash } = require$$0$5;
 	const diagnosticsChannel = require$$1$2;
 	const { uid, states } = requireConstants();
@@ -20192,23 +20213,14 @@ function requireWebsocket () {
 	      // not throw an exception must increase the bufferedAmount attribute
 	      // by the length of data’s buffer in bytes.
 
-	      const ab = new ArrayBuffer(data.byteLength);
+	      const ab = Buffer.from(data, data.byteOffset, data.byteLength);
 
-	      if (Buffer.isBuffer(data)) {
-	        // new Buffer signature is deprecated
-	        Buffer.from(ab).set(data);
-	      } else {
-	        new data.constructor(ab).set(data);
-	      }
-
-	      const value = Buffer.from(ab);
-
-	      const frame = new WebsocketFrameSend(value);
+	      const frame = new WebsocketFrameSend(ab);
 	      const buffer = frame.createFrame(opcodes.BINARY);
 
-	      this.#bufferedAmount += value.byteLength;
+	      this.#bufferedAmount += ab.byteLength;
 	      socket.write(buffer, () => {
-	        this.#bufferedAmount -= value.byteLength;
+	        this.#bufferedAmount -= ab.byteLength;
 	      });
 	    } else if (isBlobLike(data)) {
 	      // If the WebSocket connection is established, and the WebSocket
@@ -20473,6 +20485,14 @@ function requireUndici () {
 	const nodeMajor = Number(nodeVersion[0]);
 	const nodeMinor = Number(nodeVersion[1]);
 
+	let hasCrypto;
+	try {
+	  require('crypto');
+	  hasCrypto = true;
+	} catch {
+	  hasCrypto = false;
+	}
+
 	Object.assign(Dispatcher.prototype, api$1);
 
 	undici.Dispatcher = Dispatcher;
@@ -20577,7 +20597,7 @@ function requireUndici () {
 	  undici.setCookie = setCookie;
 	}
 
-	if (nodeMajor >= 18) {
+	if (nodeMajor >= 18 && hasCrypto) {
 	  const { WebSocket } = requireWebsocket();
 
 	  undici.WebSocket = WebSocket;

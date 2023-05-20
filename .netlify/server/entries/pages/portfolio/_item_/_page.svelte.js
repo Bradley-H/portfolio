@@ -1,4 +1,4 @@
-import { c as create_ssr_component, i as is_promise, n as noop, v as validate_component, e as escape, f as each } from "../../../../chunks/index.js";
+import { c as create_ssr_component, i as is_promise, n as noop, v as validate_component, e as escape, d as each } from "../../../../chunks/index3.js";
 import { D as Dialog } from "../../../../chunks/Dialog.js";
 import { B as Button } from "../../../../chunks/Button.js";
 /* empty css                         */const _page_svelte_svelte_type_style_lang = "";
@@ -29,10 +29,10 @@ const Page = create_ssr_component(($$result, $$props, $$bindings, slots) => {
       return `
     ${validate_component(Dialog, "Dialog").$$render($$result, { text: data.props.msg }, {}, {})}
 
-    <div class="${"container svelte-jg7vi2"}"><div><i class="${"fas fa-arrow-left svelte-jg7vi2"}"><a href="${"/portfolio"}" class="${"svelte-jg7vi2"}">Go back</a></i></div>
-        <div class="${"upperContent svelte-jg7vi2"}"><div class="${"upperContent_piece svelte-jg7vi2"}"><img src="${"/" + escape(item.img, true) + ".webp"}" alt="${""}" class="${"svelte-jg7vi2"}">
-                <h3 class="${"svelte-jg7vi2"}">${escape(item.title)}</h3>
-                <div class="${"buttons svelte-jg7vi2"}">${validate_component(Button, "Button").$$render(
+    <div class="container svelte-jg7vi2"><div><i class="fas fa-arrow-left svelte-jg7vi2"><a href="/portfolio" class="svelte-jg7vi2">Go back</a></i></div>
+        <div class="upperContent svelte-jg7vi2"><div class="upperContent_piece svelte-jg7vi2"><img src="${"/" + escape(item.img, true) + ".webp"}" alt="" class="svelte-jg7vi2">
+                <h3 class="svelte-jg7vi2">${escape(item.title)}</h3>
+                <div class="buttons svelte-jg7vi2">${validate_component(Button, "Button").$$render(
         $$result,
         {
           text: "GitHub",
@@ -53,14 +53,14 @@ const Page = create_ssr_component(($$result, $$props, $$bindings, slots) => {
         {},
         {}
       )}` : ``}</div></div>
-            <div class="${"upperContent_tech svelte-jg7vi2"}">${each(item.tech, (tech) => {
-        return `<div class="${"upperContent_tech_item svelte-jg7vi2"}"><img src="${"/" + escape(tech.img, true) + ".webp"}" alt="${""}" class="${"svelte-jg7vi2"}">
-                        <h5 class="${"svelte-jg7vi2"}">${escape(tech.name)}</h5>
+            <div class="upperContent_tech svelte-jg7vi2">${each(item.tech, (tech) => {
+        return `<div class="upperContent_tech_item svelte-jg7vi2"><img src="${"/" + escape(tech.img, true) + ".webp"}" alt="" class="svelte-jg7vi2">
+                        <h5 class="svelte-jg7vi2">${escape(tech.name)}</h5>
                     </div>`;
       })}</div></div>
 
-        <div class="${"information svelte-jg7vi2"}"><h4 class="${"svelte-jg7vi2"}">${escape(item.title)}</h4>
-            <div class="${"information_text"}"><h3 class="${"svelte-jg7vi2"}">${escape(item.information)}</h3></div></div></div>
+        <div class="information svelte-jg7vi2"><h4 class="svelte-jg7vi2">${escape(item.title)}</h4>
+            <div class="information_text"><h3 class="svelte-jg7vi2">${escape(item.information)}</h3></div></div></div>
 `;
     }(__value);
   }(data.props.item)}`;

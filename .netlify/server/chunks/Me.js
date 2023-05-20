@@ -1,4 +1,4 @@
-import { c as create_ssr_component } from "./index.js";
+import { c as create_ssr_component } from "./index3.js";
 const Me_svelte_svelte_type_style_lang = "";
 const css = {
   code: "img.svelte-4zl6a3{width:12.5rem;height:12.5rem}",
@@ -9,7 +9,7 @@ const Me = create_ssr_component(($$result, $$props, $$bindings, slots) => {
   return `
 
 
-     <img src="${"./me.svg"}" alt="${""}" class="${"svelte-4zl6a3"}">`;
+     <img src="./me.svg" alt="" class="svelte-4zl6a3">`;
 });
 export {
   Me as M

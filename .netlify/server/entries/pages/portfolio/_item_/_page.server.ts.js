@@ -1,4 +1,4 @@
-import { e as error } from "../../../../chunks/index2.js";
+import { e as error } from "../../../../chunks/index.js";
 import { d as data } from "../../../../chunks/portfolio.js";
 let msg = "";
 const load = ({ params }) => {

@@ -1,8 +1,9 @@
-
+import * as server from '../entries/pages/portfolio/_page.server.ts.js';
 
 export const index = 4;
-export const component = async () => (await import('../entries/pages/contact/_page.svelte.js')).default;
-export const file = '_app/immutable/components/pages/contact/_page.svelte-20825a38.js';
-export const imports = ["_app/immutable/components/pages/contact/_page.svelte-20825a38.js","_app/immutable/chunks/index-fec6562e.js","_app/immutable/chunks/Me-bf6c6ddf.js","_app/immutable/chunks/Dialog-c083aba5.js","_app/immutable/chunks/Button-29e8bde3.js"];
-export const stylesheets = ["_app/immutable/assets/_page-fcdb945e.css","_app/immutable/assets/Me-e2e7e0c2.css","_app/immutable/assets/Dialog-5a9a4dd2.css","_app/immutable/assets/Button-d4f61084.css"];
+export const component = async () => (await import('../entries/pages/portfolio/_page.svelte.js')).default;
+export { server };
+export const server_id = "src/routes/portfolio/+page.server.ts";
+export const imports = ["_app/immutable/nodes/4.0c6c1d74.js","_app/immutable/chunks/index.d3d7413e.js","_app/immutable/chunks/Button.7667cde9.js","_app/immutable/chunks/Me.a840c11b.js","_app/immutable/chunks/Dialog.d8fdc785.js"];
+export const stylesheets = ["_app/immutable/assets/4.75119701.css","_app/immutable/assets/Button.d4f61084.css","_app/immutable/assets/Me.e2e7e0c2.css","_app/immutable/assets/Dialog.3aa71190.css"];
 export const fonts = [];

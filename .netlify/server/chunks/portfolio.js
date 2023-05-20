@@ -27,8 +27,8 @@ const data = [
     id: 1,
     title: "Invoice App",
     img: "invoice",
-    git: "https://github.com/Bradley-H/Invoice-App",
-    demo: "https://sad-mccarthy-54d053.netlify.app/",
+    git: "https://github.com/Bradley-H/invoice-app",
+    demo: "https://glittery-flan-c268d3.netlify.app/",
     tech: [
       {
         id: 0,
@@ -47,13 +47,13 @@ const data = [
     id: 1,
     title: "Password Generator",
     img: "password",
-    git: "https://github.com/Bradley-H/passwordGenerator",
-    demo: "https://transcendent-zuccutto-d970f2.netlify.app/",
+    git: "https://github.com/Bradley-H/passwordGen",
+    demo: "https://startling-heliotrope-e1f733.netlify.app/",
     tech: [
       {
         id: 0,
-        name: "Svelte",
-        img: "svelte"
+        name: "Vue",
+        img: "vue"
       },
       {
         id: 1,

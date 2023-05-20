@@ -3,12 +3,12 @@
     import Card from "$lib/Card.svelte";
     import Me from "$lib/Me.svelte";
     import Dialog from "$lib/Dialog.svelte";
-    import type { ServerData } from "@sveltejs/kit/types/internal";
+    import type { ServerData } from "./$types";
     // FUNCTIONS //
-    export let data: ServerData;
+    export let data: ServerData
 </script>
 
-<svelte:head>
+<svelte:head >
     <title>[B-J-H] - Portfolio</title>
 </svelte:head>
 
@@ -16,7 +16,10 @@
     @import "../../scss/util/index.scss";
     span {
         display: flex;
-        height: toRem(($portfolioLength * $cardHeight * $cardMargin * 1.75));
+        height: toRem($cardHeight * $portfolioLength * 1.2);
+        @include laptopUp{
+            height: toRem($cardHeight * $portfolioLength * .8 );
+        }
     }
     .grid {
         display: grid;

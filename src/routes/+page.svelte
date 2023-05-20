@@ -2,9 +2,17 @@
 	// COMPONENTS //
 	import Me from "$lib/Me.svelte";
 	import Dialog from '$lib/Dialog.svelte';
-	
-    import type { ServerData } from "@sveltejs/kit/types/internal";
+	import type { ServerData } from "./$types";
+    import { onMount } from "svelte";
 	export let data: ServerData;
+
+	onMount(() => {
+		const body = document.body;
+		if (body.classList.contains("hidden")) {
+			body.classList.remove("hidden");
+		}
+	});
+
 </script>
 
 
@@ -128,6 +136,7 @@
 <svelte:head> 
 	<title>[B-J-H] - Front End Web Developer</title>
 </svelte:head>
+
 
 
 <div class="me">
