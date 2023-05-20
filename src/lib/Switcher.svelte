@@ -3,13 +3,13 @@
 
     import {globalStore} from '../stores/globalStore'
 
-    function toggleTheme(){4
-        if($globalStore.theme === "night"){
-            $globalStore.theme = "day"
-        } else {
-            $globalStore.theme = "night"
-        }
-    }
+    // function toggleTheme(){
+    //     if($globalStore.theme === "night"){
+    //         $globalStore.theme = "day"
+    //     } else {
+    //         $globalStore.theme = "night"
+    //     }
+    // }
 </script>
 
 

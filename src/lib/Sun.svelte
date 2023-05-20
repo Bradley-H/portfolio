@@ -13,7 +13,7 @@
         top: 0rem;
         @include laptopUp{
             left: unset;
-            right: 2.5rem;
+            right: 4rem;
             top: .25rem;
         }
     }

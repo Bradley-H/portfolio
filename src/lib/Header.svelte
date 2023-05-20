@@ -26,9 +26,11 @@
 
     header {
         display: flex;
-        margin-left: 0.8rem;
+        margin-left: toRem(12);
         z-index: 80;
         transform: translateY(.4rem);
+        width: 100%;
+        height: toRem(35);
 
         a {
             text-decoration: none;
@@ -36,9 +38,9 @@
             top: -0.05rem; 
             z-index: 5;
             color: $textColor;
-            position: absolute;
+            @extend %absolute;
             width: max-content;
-            margin-top: .5rem;
+            margin-top: toRem(9);
 
         }
 
@@ -47,7 +49,7 @@
             justify-content: space-evenly;
             align-items: center;
             width: 100%;
-            position: absolute;
+            @extend %absolute;
             top: -0.1rem;
             @include desktopUp {
                 display: flex;
@@ -57,9 +59,9 @@
             }
         }
         .burger {
-            position: absolute;
+            @extend %absolute;
             right: 1rem;
-            top: 0;
+            top: toRem(-5);
             width:toRem(55);
             height: 35px;
             @include centered;
@@ -76,7 +78,7 @@
         height: 100%;
         width: 100%;
         inset: 0;
-        position: absolute;
+        @extend %absolute;
     }
 </style>
 

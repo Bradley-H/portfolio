@@ -13,7 +13,7 @@
         display: grid;
         position: relative;
         place-self: center;
-        top: -7.25rem;
+        top: -8rem;
         min-width: 250px;
         max-width: toRem($maxContainer);
         color:white;
