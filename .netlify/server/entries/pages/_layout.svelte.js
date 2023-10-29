@@ -88,7 +88,7 @@ const Menu = create_ssr_component(($$result, $$props, $$bindings, slots) => {
 });
 const Header_svelte_svelte_type_style_lang = "";
 const css$3 = {
-  code: "header.svelte-seshbl .burger.svelte-seshbl{display:flex}header.svelte-seshbl.svelte-seshbl{display:flex;margin-left:0.8rem;z-index:80;transform:translateY(0.4rem)}header.svelte-seshbl a.svelte-seshbl{text-decoration:none;transition:all 888ms linear;top:-0.05rem;z-index:5;color:#093259;position:absolute;width:max-content;margin-top:0.5rem}header.svelte-seshbl .links.svelte-seshbl{display:none;justify-content:space-evenly;align-items:center;width:100%;position:absolute;top:-0.1rem}@media(min-width: 1025px){header.svelte-seshbl .links.svelte-seshbl{display:flex}}header.svelte-seshbl .links div.svelte-seshbl{margin:0 1rem}header.svelte-seshbl .burger.svelte-seshbl{position:absolute;right:1rem;top:0;width:3.4375rem;height:35px;justify-content:center;align-items:center}@media(min-width: 1025px){header.svelte-seshbl .burger.svelte-seshbl{display:none}}.menu.svelte-seshbl.svelte-seshbl{z-index:70;height:100%;width:100%;inset:0;position:absolute}",
+  code: ".menu.svelte-13ec50m.svelte-13ec50m,header.svelte-13ec50m .burger.svelte-13ec50m,header.svelte-13ec50m .links.svelte-13ec50m,header.svelte-13ec50m a.svelte-13ec50m{position:absolute}header.svelte-13ec50m .burger.svelte-13ec50m{display:flex}header.svelte-13ec50m.svelte-13ec50m{display:flex;margin-left:0.75rem;z-index:80;transform:translateY(0.4rem);width:100%;height:2.1875rem}header.svelte-13ec50m a.svelte-13ec50m{text-decoration:none;transition:all 888ms linear;top:-0.05rem;z-index:5;color:#093259;width:max-content;margin-top:0.5625rem}header.svelte-13ec50m .links.svelte-13ec50m{display:none;justify-content:space-evenly;align-items:center;width:100%;top:-0.1rem}@media(min-width: 1025px){header.svelte-13ec50m .links.svelte-13ec50m{display:flex}}header.svelte-13ec50m .links div.svelte-13ec50m{margin:0 1rem}header.svelte-13ec50m .burger.svelte-13ec50m{right:1rem;top:-0.3125rem;width:3.4375rem;height:35px;justify-content:center;align-items:center}@media(min-width: 1025px){header.svelte-13ec50m .burger.svelte-13ec50m{display:none}}.menu.svelte-13ec50m.svelte-13ec50m{z-index:70;height:100%;width:100%;inset:0}",
   map: null
 };
 const Header = create_ssr_component(($$result, $$props, $$bindings, slots) => {
@@ -100,11 +100,11 @@ const Header = create_ssr_component(($$result, $$props, $$bindings, slots) => {
   $$result.css.add(css$3);
   $$unsubscribe_page();
   $$unsubscribe_globalStore();
-  return `<header class="svelte-seshbl"><div class="burger svelte-seshbl">${validate_component(Burger, "Burger").$$render($$result, {}, {}, {})}</div>
-    <a href="/" class="svelte-seshbl">B-J-H</a>
+  return `<header class="svelte-13ec50m"><div class="burger svelte-13ec50m">${validate_component(Burger, "Burger").$$render($$result, {}, {}, {})}</div>
+    <a href="/" class="svelte-13ec50m">B-J-H</a>
 
-    <div class="links svelte-seshbl">${each(links, (link, i) => {
-    return `<div class="svelte-seshbl">${validate_component(Link, "Link").$$render($$result, Object.assign({}, link, { active }), {}, {})}
+    <div class="links svelte-13ec50m">${each(links, (link, i) => {
+    return `<div class="svelte-13ec50m">${validate_component(Link, "Link").$$render($$result, Object.assign({}, link, { active }), {}, {})}
         </div>`;
   })}
         ${validate_component(Button, "Button").$$render(
@@ -118,7 +118,7 @@ const Header = create_ssr_component(($$result, $$props, $$bindings, slots) => {
     {}
   )}</div></header>
 
-${$globalStore.navActive ? `<div class="menu svelte-seshbl">${validate_component(Menu, "Menu").$$render($$result, {}, {}, {})}</div>` : ``}`;
+${$globalStore.navActive ? `<div class="menu svelte-13ec50m">${validate_component(Menu, "Menu").$$render($$result, {}, {}, {})}</div>` : ``}`;
 });
 const Cloud_svelte_svelte_type_style_lang = "";
 const css$2 = {
@@ -134,12 +134,12 @@ const Cloud = create_ssr_component(($$result, $$props, $$bindings, slots) => {
 });
 const Sun_svelte_svelte_type_style_lang = "";
 const css$1 = {
-  code: "div.svelte-3nuaw1{height:2.5rem;width:2.5rem;background-color:#fff700;position:absolute;left:12rem;top:0rem}@media(min-width: 769px){div.svelte-3nuaw1{left:unset;right:2.5rem;top:0.25rem}}",
+  code: "div.svelte-vbm0y0{height:2.5rem;width:2.5rem;background-color:#fff700;position:absolute;left:12rem;top:0rem}@media(min-width: 769px){div.svelte-vbm0y0{left:unset;right:4rem;top:0.25rem}}",
   map: null
 };
 const Sun = create_ssr_component(($$result, $$props, $$bindings, slots) => {
   $$result.css.add(css$1);
-  return `<div class="svelte-3nuaw1"></div>`;
+  return `<div class="svelte-vbm0y0"></div>`;
 });
 const _layout_svelte_svelte_type_style_lang = "";
 const css = {

@@ -7,6 +7,8 @@
     export let data: ServerData;
     // SCSS DEFINITIONS //
     import "../../../styles.scss";
+    $: console.log(data.props.item);
+    
 </script>
 
 <style lang="scss">
@@ -53,6 +55,7 @@
                     @extend %flex;
                     margin: 1.1rem 0;
                     color: white;
+                    text-shadow: 1px 1px 3px black;
                     @include laptopUp {
                         display: none;
                     }
@@ -147,7 +150,6 @@
 {#await data.props.item}
     <Dialog text={"Getting portfolio Item. One moment"} />
 {:then item}
-    <Dialog text={data.props.msg} />
 
     <div class="container">
         <div>

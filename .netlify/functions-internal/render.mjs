@@ -6,7 +6,7 @@ export const handler = init({
 	assets: new Set(["favicon.png","finger.png","git.png","head.svg","html.webp","invoice.webp","IP.webp","me.png","me.svg","me2.png","node.webp","password.webp","portfolio.json","portfolio.webp","python.webp","Resume.pdf","sass.webp","simon.webp","svelte.webp","TS.webp","vue.webp","WeChat.png"]),
 	mimeTypes: {".png":"image/png",".svg":"image/svg+xml",".webp":"image/webp",".json":"application/json",".pdf":"application/pdf"},
 	_: {
-		client: {"start":"_app/immutable/entry/start.dfaa2832.js","app":"_app/immutable/entry/app.d0636b1a.js","imports":["_app/immutable/entry/start.dfaa2832.js","_app/immutable/chunks/index.d3d7413e.js","_app/immutable/chunks/singletons.320f3326.js","_app/immutable/entry/app.d0636b1a.js","_app/immutable/chunks/index.d3d7413e.js"],"stylesheets":[],"fonts":[]},
+		client: {"start":"_app/immutable/entry/start.72e77769.js","app":"_app/immutable/entry/app.922a02b4.js","imports":["_app/immutable/entry/start.72e77769.js","_app/immutable/chunks/index.d3d7413e.js","_app/immutable/chunks/singletons.c9bc3520.js","_app/immutable/entry/app.922a02b4.js","_app/immutable/chunks/index.d3d7413e.js"],"stylesheets":[],"fonts":[]},
 		nodes: [
 			() => import('../server/nodes/0.js'),
 			() => import('../server/nodes/1.js'),
