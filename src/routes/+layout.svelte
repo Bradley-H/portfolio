@@ -15,7 +15,7 @@
 main{
 	display: flex;
 	flex-direction: column;
-	overflow-y: auto;
+	overflow-y: hidden;
 	overflow-x: hidden;
 	background: $primaryColor;
 	width: 100%;
